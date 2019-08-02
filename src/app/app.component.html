@@ -2,9 +2,10 @@
 <link href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" rel="stylesheet">
 <section class="container row" id="phone-outline">
   <article class="col-sm-10" id="phone-display">
-    <article class="col-sm-2" id="phone-buttons">
-      <li type="none" class="btn btn-light mb-2 ml-1" *ngFor="let button of buttons">{{button}}</li>
-      <li type="none" class="btn btn-outline-danger">Dismiss call</li> 
+    <article class="col-sm-2 mt-3" id="phone-buttons">
+      <input type="text" class="col mt-2" disabled [value]="buttonsPressed">
+      <li type="none" class="btn btn-light mt-2 ml-1" *ngFor="let button of buttons" (click)="getKeys(button)">{{button}}</li>
+      <li type="none" class="btn btn-outline-danger mt-2 ml-1 mb-3">Dismiss call</li> 
     </article> 
   </article>
 </section>

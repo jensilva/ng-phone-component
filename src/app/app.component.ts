@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Phone';
   buttons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
-  buttonCall = true;
+  onCall = true;
+  buttonsPressed = '';
+
+  getKeys(key: string): string {
+    this.buttonsPressed += key;
+    return this.buttonsPressed;
+  }
 }
