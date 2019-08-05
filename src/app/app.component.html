@@ -1,11 +1,22 @@
-<section class="container row" id="phone-outline">
-  <article class="col-sm-10" id="phone-display">
-    <article class="col-sm-2 mt-3" id="phone-buttons">
-      <input type="text" class="col mt-2" disabled [value]="buttonsPressed">
-      <li type="none" class="btn btn-light mt-2 ml-1" *ngFor="let button of buttons" (click)="getKeys(button)">{{button}}</li>
-      <li type="none" class="btn btn-outline-danger mt-2 ml-1 mb-3"><i class="fas fa-phone-slash"></i>Dismiss call</li> 
+
+<section class="container-fluid">
+  <section class="col-5 mt-5 ml-5 " id="phone-outline"> 
+      <article class= "row">
+          <article class="col-12 mt-4">
+          <input type="text" id="phone-display" class="form-control form-group" disabled [value]="buttonsPressed">    
+      </article>
+    </article>
+        <article class="row" id="phone-buttons">
+          <li type="none"  *ngFor="let button of buttons" class="col-4 form-group">
+              <button class="btn btn-light form-control"  (click)="getKeys(button)">
+                  {{button}}
+              </button>
+            </li>
+            <li type="none" class="col-12 form-group">
+            <button (click)="call()" [ngClass]="{'btn-outline-success': !onCall, 'btn-outline-danger': onCall }" class="form-control btn">{{buttonMessage}}</button> 
+          </li>
     </article> 
-  </article>
+  </section>
 </section>
 
 
