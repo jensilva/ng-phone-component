@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private phoneService: PhoneService) {}
 
   ngOnInit() {
-    this.phoneService.getStatus().subscribe();
     this.phoneService.sendCallSignal(this.onCall).subscribe();
   }
 
@@ -23,6 +22,21 @@ export class AppComponent implements OnInit {
     this.buttonsPressed += key;
     this.sendKeys();
     return this.buttonsPressed;
+  }
+
+  backspace() {
+    if (this.buttonsPressed) {
+      const newDigits = this.buttonsPressed.split('');
+      this.buttonsPressed = newDigits.slice(0, -1).join('');
+    }
+  }
+
+  get buttonMessage(): string {
+    if (this.onCall) {
+      return 'Dismiss Call';
+    } else {
+      return 'Call';
+    }
   }
 
   sendKeys(): void {
@@ -37,13 +51,5 @@ export class AppComponent implements OnInit {
 
   callSignal(): void {
     this.phoneService.sendCallSignal(this.onCall).subscribe();
-  }
-
-  get buttonMessage(): string {
-    if (this.onCall) {
-      return 'Dismiss Call';
-    } else {
-      return 'Call';
-    }
   }
 }

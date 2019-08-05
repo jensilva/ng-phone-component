@@ -3,12 +3,17 @@
   <section class="col-5 mt-5 ml-5 " id="phone-outline"> 
       <article class= "row">
           <article class="col-12 mt-4">
-          <input type="text" id="phone-display" class="form-control form-group" disabled [value]="buttonsPressed">    
+          <p type="text" id="phone-display" class="form-control form-group">
+            {{this.buttonsPressed}}
+          </p>
+          <span (click)="backspace()">
+            <i class="fas fa-backspace d-flex justify-content-end mb-4" id="btn-backspace"></i>
+        </span>    
       </article>
     </article>
         <article class="row" id="phone-buttons">
           <li type="none"  *ngFor="let button of buttons" class="col-4 form-group">
-              <button class="btn btn-light form-control"  (click)="getKeys(button)">
+              <button [disabled]="!onCall" class="btn btn-light form-control"  (click)="getKeys(button)">
                   {{button}}
               </button>
             </li>

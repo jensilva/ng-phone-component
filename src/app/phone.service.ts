@@ -15,18 +15,17 @@ export class PhoneService {
 
   constructor(private http: HttpClient) {}
 
-  sendkeys(digit: string): Observable<void> {
+  sendkeys(digits: string): Observable<void> {
     const phoneUrl = `${environment.serviceUrl}/digit`;
-    return this.http.post<void>(phoneUrl, digit, this.httpOptions);
+    return this.http.post<void>(phoneUrl, { digits }, this.httpOptions);
   }
 
   sendCallSignal(onCall: boolean): Observable<void> {
     const changeCallStatusUrl = `${environment.serviceUrl}/call`;
-    return this.http.post<void>(changeCallStatusUrl, onCall, this.httpOptions);
-  }
-
-  getStatus(): Observable<object> {
-    const statusUrl = `${environment.serviceUrl}/status`;
-    return this.http.get(statusUrl);
+    return this.http.post<void>(
+      changeCallStatusUrl,
+      { onCall },
+      this.httpOptions
+    );
   }
 }
