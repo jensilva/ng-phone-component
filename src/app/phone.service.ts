@@ -15,9 +15,9 @@ export class PhoneService {
 
   constructor(private http: HttpClient) {}
 
-  sendkeys(digits: string): Observable<void> {
+  sendkeys(digit: string): Observable<void> {
     const phoneUrl = `${environment.serviceUrl}/digit`;
-    return this.http.post<void>(phoneUrl, { digits }, this.httpOptions);
+    return this.http.post<void>(phoneUrl, { digit }, this.httpOptions);
   }
 
   sendCallSignal(onCall: boolean): Observable<void> {

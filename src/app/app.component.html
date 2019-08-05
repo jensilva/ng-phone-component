@@ -4,7 +4,7 @@
       <article class= "row">
           <article class="col-12 mt-4">
           <p type="text" id="phone-display" class="form-control form-group">
-            {{this.buttonsPressed}}
+            {{buttonsPressed}}
           </p>
           <span (click)="backspace()">
             <i class="fas fa-backspace d-flex justify-content-end mb-4" id="btn-backspace"></i>
@@ -22,6 +22,7 @@
           </li>
     </article> 
   </section>
+  <app-console [buttonsPressed]="buttonsPressed"></app-console> 
 </section>
 
 
