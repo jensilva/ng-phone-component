@@ -7,7 +7,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PhoneService {
-  phoneUrl = `${environment.serviceUrl}/digit`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -17,11 +16,13 @@ export class PhoneService {
   constructor(private http: HttpClient) {}
 
   sendkeys(digit: string): Observable<void> {
-    return this.http.post<void>(this.phoneUrl, { digit }, this.httpOptions);
+    const phoneUrl = `${environment.serviceUrl}/digit`;
+    return this.http.post<void>(phoneUrl, digit, this.httpOptions);
   }
 
   sendCallSignal(onCall: boolean): Observable<void> {
-    return this.http.post<void>(this.phoneUrl, onCall, this.httpOptions);
+    const changeCallStatusUrl = `${environment.serviceUrl}/call`;
+    return this.http.post<void>(changeCallStatusUrl, onCall, this.httpOptions);
   }
 
   getStatus(): Observable<object> {
