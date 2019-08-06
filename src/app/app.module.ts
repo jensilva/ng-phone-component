@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PhoneService } from './phone.service';
+import { ConsoleComponent } from './console/console.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ConsoleComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [PhoneService],
   bootstrap: [AppComponent]

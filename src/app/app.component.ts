@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   getKeys(key: string): string {
     this.buttonsPressed += key;
-    this.sendKeys();
+    this.sendKeys(key);
     return this.buttonsPressed;
   }
 
@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  sendKeys(): void {
-    this.phoneService.sendkeys(this.buttonsPressed).subscribe();
+  sendKeys(key: string): void {
+    this.phoneService.sendkeys(key).subscribe();
   }
 
   call(): void {
@@ -51,5 +51,9 @@ export class AppComponent implements OnInit {
 
   callSignal(): void {
     this.phoneService.sendCallSignal(this.onCall).subscribe();
+  }
+
+  onResetEvent(keys: string) {
+    this.buttonsPressed = keys;
   }
 }
