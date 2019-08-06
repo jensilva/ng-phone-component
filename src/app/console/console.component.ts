@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.sass']
+  styleUrls: ['./console.component.scss']
 })
 export class ConsoleComponent {
   @Input() set buttonsPressed(pressed: string) {
@@ -13,6 +13,8 @@ export class ConsoleComponent {
   get buttonsPressed(): string {
     return this.buttonPressed;
   }
+
+  @Output() resetEvent: EventEmitter<string> = new EventEmitter();
 
   private buttonPressed: string;
   public cardNumber;
@@ -31,5 +33,7 @@ export class ConsoleComponent {
     } else {
       this.buttonsPressed = '';
     }
+
+    this.resetEvent.emit(this.buttonPressed);
   }
 }

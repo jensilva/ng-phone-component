@@ -1,6 +1,7 @@
 
 <section class="container-fluid">
-  <section class="col-5 mt-5 ml-5 " id="phone-outline"> 
+  <section class="row">
+  <section class="col-5 mt-5 ml-5" id="phone-outline"> 
       <article class= "row">
           <article class="col-12 mt-4">
           <p type="text" id="phone-display" class="form-control form-group">
@@ -22,7 +23,9 @@
           </li>
     </article> 
   </section>
-  <app-console [buttonsPressed]="buttonsPressed"></app-console> 
+      <app-console class="col mt-5 ml-5 mr-5" (resetEvent)="onResetEvent($event)" [buttonsPressed]="buttonsPressed"></app-console> 
+    </section>
+
 </section>
 
 

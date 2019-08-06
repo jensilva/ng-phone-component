@@ -1,5 +1,5 @@
-<section class="card bg-light mb-3" style="max-width: 18rem;">
-        <article class="card-header">Console</article>
+<section class="card bg-light mb-3">
+        <h5 class="card-header">Console</h5>
         <article class="card-body">
           <p class="card-text">Characters length: {{buttonsPressed.length}}</p>
           <p class="card-text">Last sent: {{buttonsPressed.split('').pop()}}</p>
@@ -7,6 +7,7 @@
           <p class="card-text">CVC: {{CVC}}</p>
           <button class="btn btn-outline-dark form-control" (click)='clearConsole()'>Reset</button>
         </article>
-        <span class="alert alert-info">To indicate CVC press <b>#</b> after card number</span>
-        <span class="alert alert-warning">To force an error while digiting card number press <b>*</b></span>
+        
+        <p class="alert alert-info mx-3">Press <span class="badge badge-info">#</span> to start typing CVC</p>
+        <p class="alert alert-warning mx-3">Press <span class="badge badge-warning"><b>*</b></span> to force a card number error</p>
 </section>

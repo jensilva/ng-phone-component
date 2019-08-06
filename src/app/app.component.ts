@@ -52,4 +52,8 @@ export class AppComponent implements OnInit {
   callSignal(): void {
     this.phoneService.sendCallSignal(this.onCall).subscribe();
   }
+
+  onResetEvent(keys: string) {
+    this.buttonsPressed = keys;
+  }
 }
